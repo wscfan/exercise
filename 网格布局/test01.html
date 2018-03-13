@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+	<style>
+		.box {display: grid; width: 400px; height: 200px; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px; background: #eee;}
+		.box1 {grid-row-start: 1; grid-row-end: 2; grid-column-start: 1; grid-column-end: 2; background: #ccc;}
+		.box2 {grid-row: 2/3; grid-column: 2/3; background: #ff0;}
+		.box3 {grid-area: 3/3/4/4; background: #0ff;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span class="box1">sdfsdfdsfsdf</span>
+		<span class="box2">sdfsdfsdf</span>
+		<span class="box3">sdfsdfsdfsdfsd</span>
+	</div>
+</body>
+</html>
