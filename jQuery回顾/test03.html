@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+</head>
+<body>
+	<ul>
+		<li class="li">1111111</li>
+		<li>1111111</li>
+		<li>1111111</li>
+		<li>1111111</li>
+		<li>1111111</li>
+	</ul>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script>
+		$(function() {
+			$('.li').on('click', function() {
+				$('.li + li').css('background-color', '#f00');
+			})
+		});
+	</script>
+</body>
+</html>

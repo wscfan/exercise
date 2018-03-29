@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型链实例</title>
+</head>
+<body>
+	<div id="#ele">
+		<h1>这是一段测试代码</h1>
+	</div>
+
+	<script>
+		function Elem (id) {
+			this.elem = document.getElementById(id);
+		}
+
+		Elem.prototype.html = function (val) {
+			var elem = this.elem;
+			if (val) {
+				elem.innerHTML = val;
+				return this;
+			} else {
+				return elem.innerHTML;
+			}
+		}
+
+		Elem.prototype.on = function (type, fn) {
+			this.elem.addEventListener(type, fn);
+		}
+
+		var oEle = new Elem('#ele');
+		console.log(oEle.html());
+		oEle.html('点击').on('click', function() {
+			alert('1111111111111111');
+		})
+	</script>
+</body>
+</html>
