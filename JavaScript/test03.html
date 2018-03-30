@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+</head>
+<body>
+	
+	<script>
+		function isFirstLoad () {
+			var list = [];
+			return function (n) {
+				if (list.indexOf(n) < 0) {
+					list.push(n);
+					alert(true);
+				} else {
+					alert(false);
+				}
+			}
+		}
+		var firstLoad = isFirstLoad();
+		firstLoad(10);
+		firstLoad(10);
+		firstLoad(20);
+		firstLoad(20);
+	</script>
+</body>
+</html>
