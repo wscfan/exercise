@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+	<style>
+		#box1 {
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<button id="btn">click me</button>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script>
+		$(function () {
+			var onOff = true;
+			$('#btn').on('click', function () {
+				if (onOff) {
+					$('#box1').fadeOut(function() {
+						alert('111111');
+					});
+				} else {
+					$('#box1').fadeTo('normal', 0.4);
+				}
+				onOff = !onOff;
+			})
+		});
+	</script>
+</body>
+</html>

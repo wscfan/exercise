@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+	<style>
+		#box1 {
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+
+		#box2 {
+			width: 100px;
+			height: 100px;
+			background-color: #0ff;
+			position: absolute;
+			top: 150px;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<button id="btn">click me</button>
+
+	<div id="box2"></div>
+	<button id="btn2">click</button>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script>
+		$(function () {
+			var onOff = true;
+			$('#btn').on('click', function () {
+				if (onOff) {
+					$('#box1').animate({
+						width: '200px',
+						height: '200px'
+					}, 1000);
+				} else {
+					$('#box1').animate({
+						width: '100px',
+						height: '100px'
+					}, 1000, swing);
+				}
+				onOff = !onOff;
+			})
+
+			$('#btn2').on('click', function () {
+				$('#box2').animate({
+					left: '100px'
+				}, {
+					duration: 2000
+				});
+			});
+		});
+	</script>
+</body>
+</html>

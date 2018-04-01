@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+</head>
+<body>
+	<div id="box">
+		<h1 id="t1">这是一个标题</h1>
+		<h1>这是一个标题</h1>
+		<p>这是一段文本</p>
+	</div>
+	
+	<script>
+		var oBox = document.getElementById('box');
+		var oT1 = document.getElementById('t1');
+		console.log(oT1.parentNode);
+		console.log(oBox.childNodes);
+		oBox.childNodes.forEach(function (item, index) {
+			console.log(oBox.childNodes[index].nodeType, oBox.childNodes[index].nodeName);
+		});
+	</script>
+</body>
+</html>
