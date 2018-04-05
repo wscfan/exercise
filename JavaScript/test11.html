@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+</head>
+<body>
+	<a id='a'>111111111111</a>
+
+	<script>
+		var oA = document.getElementById('a');
+		bindEvent(oA, 'click', function(e) {
+			e.preventDefault();
+			alert(111111);
+		});
+
+		function bindEvent (el, event, fn) {
+			el.addEventListener(event, fn);
+		}
+	</script>
+</body>
+</html>

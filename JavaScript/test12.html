@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+</head>
+<body>
+	<div id="box">
+		<a href="">1111111111</a>
+		<a href="">2222222222</a>
+		<a href="">3333333333</a>
+		<a href="">4444444444</a>
+	</div>
+
+	<script>
+		var oBox = document.getElementById('box');
+		var aA = oBox.getElementsByTagName('a');
+		// bindEvent(oBox, 'click', 'a', function(e) {
+		// 	e.preventDefault();
+		// 	console.log(this.innerHTML);
+		// })
+
+		bindEvent(aA[0], 'click', function (e) {
+			e.preventDefault();
+			alert(aA[0].innerHTML);
+		})
+
+		function bindEvent (el, type, selector, fn) {
+			if (fn == null) {
+				fn = selector;
+				selector = null;
+			}
+			el.addEventListener(type, function (e) {
+				var target;
+				if (selector) {
+					target = e.target;
+					if (target.matches(selector)) {
+						fn.call(target, e);
+					}
+				} else {
+					fn(e);
+				}
+			})
+		}
+	</script>
+</body>
+</html>

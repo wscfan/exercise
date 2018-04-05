@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+</head>
+<body>
+	
+	<script>
+		let arr = [12, 34, 22, 33];
+		var arr_2 = arr.map(item=>item*2);
+		console.log(arr_2);
+
+		let arr_reduce = arr.reduce((result, item, index, arr) => {
+			if (index != arr.length-1) {
+				return result + item;
+			} else {
+				return '总和：' + (result + item) + ' 平均：' + (result + item) / arr.length;
+			}
+		});
+		console.log(arr_reduce);
+	</script>
+</body>
+</html>
