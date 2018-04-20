@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+	<script src="echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 600px; height: 400px;"></div>
+	<script>
+		// 初始化echarts实例
+		var mychart = echarts.init(document.getElementById('main'));
+
+		// 指定图表配置项和数据
+		var option = {
+			title: {
+				text: '我的图表',
+				subtext: '学习echarts图标',
+				left: 'center',
+				borderColor: '#f13030',
+				borderWidth: 3
+			},
+            tooltip: {
+            },
+			legend: {
+				right: 100,
+				data: ['分数']
+			},
+			xAxis: {
+				data: ['语文', '英语', '数学', '物理', '化学', '生物']
+			},
+			yAxis: {
+
+			},
+			series: [{
+				name: '分数',
+				type: 'bar',
+				data: [93, 88, 99, 78, 57, 89]
+			}, {
+				name: '分数',
+				type: 'line',
+				data: [93, 88, 99, 78, 57, 89]
+			}]
+		};
+
+		// 显示图表
+		mychart.setOption(option);
+	</script>
+</body>
+</html>

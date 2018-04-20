@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+</head>
+<body>
+	
+	<script>
+		function *show () {
+			alert('a');
+			yield;
+			alert('b');
+		}
+
+		let getObj = show();
+		console.log(getObj);
+		getObj.next();
+		getObj.next();
+	</script>
+</body>
+</html>
