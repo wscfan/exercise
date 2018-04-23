@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ws</title>
+	<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+	<script>
+		let sock = io.connect('ws://localhost:8080');
+		document.onclick = function  () {
+			var rand = Math.random();
+			sock.emit(rand, 23, 5);
+		}
+
+		sock.on('b', function (ran) {
+			console.log(ran);
+		});
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
