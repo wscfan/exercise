@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drag</title>
+	<style>
+		#div1 {
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			text-align: center;
+			line-height: 200px;
+			border: 2px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">拖到这里上传</div>
+	<img id="img1" src="" alt="">
+	<script>
+		window.onload = function () {
+			let oDiv = document.getElementById("div1");
+			let oImg  = document.getElementById("img1")
+			oDiv.addEventListener('dragenter', function () {
+				oDiv.innerHTML = '请松手';
+			}, false)
+			oDiv.addEventListener('dragleave', function () {
+				oDiv.innerHTML = '拖到这里上传';
+			}, false)
+			oDiv.addEventListener('dragover', function (e) {
+				e.preventDefault();
+			}, false)
+			oDiv.addEventListener('drop', function (e) {
+				e.preventDefault();
+
+				let oFile = e.dataTransfer.files[0];
+				console.log(oFile);
+
+				// 读取文件
+				let reader = new FileReader();
+				reader.onload = function () {
+					// alert('读取成功' + this.result);
+					oImg.src = this.result;
+				}
+				reader.onerror = function () {
+					alert('读取失败了');
+				}
+				reader.readAsDataURL(oFile);
+			}, false)
+		}
+	</script>
+</body>
+</html>
