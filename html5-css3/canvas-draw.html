@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		body {
+			background: #000;
+			margin-top: 50px;
+			text-align: center;
+		}
+		#cvs {
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="cvs" width="800" height="600">
+		您的浏览器不支持canvas
+	</canvas>
+
+	<script>
+		let oCvs = document.getElementById('cvs');
+		let ctx = oCvs.getContext('2d');
+
+		let lastX, lastY;
+
+		oCvs.onmousedown = function (ev) {
+			lastX = ev.offsetX;
+			lastY = ev.offsetY;
+			oCvs.onmousemove = function (ev) {
+				ctx.moveTo(lastX, lastY);
+				ctx.lineTo(ev.offsetX, ev.offsetY);
+				lastX = ev.offsetX;
+				lastY = ev.offsetY;
+				ctx.stroke();
+			}
+			oCvs.onmouseup = function () {
+				oCvs.onmousemove = null;
+				oCvs.onmouseup = null;
+			}
+		}
+	</script>
+</body>
+</html>
