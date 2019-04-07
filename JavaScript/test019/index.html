@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test019</title>
+</head>
+<body>
+  <form action="" method="post">
+    <p><label for="username">用户名：<input type="text" name="username"></label><span class="usrwarn"></span></p>
+    <p><label for="username">邮箱：<input type="text" name="email"></label></p>
+    <p><input type="submit" value="提交"></p>
+  </form>
+
+  <script>
+    var usr = document.getElementsByName('username')[0];
+    var email = document.getElementsByName('email')[0];
+    var warnList = document.getElementsByClassName('usrwarn');
+    usr.onblur = function () {
+      var url = './reg.php?un=' + this.value;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          if (this.responseText == 1) {
+            warnList[0].innerHTML = '<span style="color: green;">可以注册</span>';
+          } else {
+            warnList[0].innerHTML = '<span style="color: red;">不能注册</span>';
+          }
+        } else {
+
+        }
+      }
+      xhr.open('get', url, true);
+      xhr.send();
+    }
+    document.getElementsByTagName('form')[0].onsubmit = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+      }
+      xhr.open('post', './login.php', true);
+      par = 'name=' + usr.value + '&email=' + email.value;
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.send(par);
+      return false;
+    }
+  </script>
+</body>
+</html>
