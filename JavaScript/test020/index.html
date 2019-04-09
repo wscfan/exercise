@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test020</title>
+</head>
+<body>
+  <button id="btn">获取</button>
+  <ul></ul>
+  <script>
+    document.getElementById('btn').onclick = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function (res) {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementsByTagName('ul')[0].innerHTML = this.responseText;
+        }
+      }
+      xhr.open('get', 'data.php', true);
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
