@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test07</title>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+</head>
+<body>
+  <form action="">
+    <label for="usr">用户名：<input type="text" name="usr"></label>
+    <label for="usr">密码：<input type="password" name="pwd"></label>
+    <input type="submit" value="提交">
+  </form>
+
+  <script>
+    $('form').submit(function () {
+      let url = 'test.php';
+      let par = {
+        usr: $('input[name=usr]').val(),
+        pwd: $('input[name=pwd').val()
+      }
+      $.post(url, par, function (data) {
+        console.log(data);
+      })
+      return false;
+    })
+  </script>
+</body>
+</html>
